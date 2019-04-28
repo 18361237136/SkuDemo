@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:zmz="http://schemas.android.com/tools"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/sps"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:orientation="vertical"/>
+
+    <RelativeLayout
+        android:id="@+id/top_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:layout_below="@+id/sps"/>
+
+    <com.example.skudemo.view.ImageViewPlus
+        android:id="@+id/select_iv"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_alignTop="@id/top_container"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-20dp"
+        app:type="2"
+        app:borderColor="@color/white"
+        app:borderWidths="5dp"
+        app:rectRoundRadius="8dp"
+        zmz:src="@drawable/xiezi"/>
+
+    <TextView
+        android:id="@+id/select_price_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/select_iv"
+        zmz:text="20元"
+        android:layout_marginLeft="10dp"
+        android:textSize="17sp"
+        android:textColor="@color/colorMoney"
+        android:layout_alignTop="@id/top_container"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/Stock_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/select_iv"
+        zmz:text="库存111111件"
+        android:textSize="15sp"
+        android:textColor="@color/colorText"
+        android:layout_below ="@id/select_price_tv"
+        android:layout_alignLeft="@id/select_price_tv"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/choose_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/select_iv"
+        android:textColor="@color/colorText"
+        android:textSize="15sp"
+        zmz:text="请选择   尺寸"
+        android:layout_below ="@id/Stock_tv"
+        android:layout_alignLeft="@id/select_price_tv"
+        android:layout_marginTop="5dp"/>
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/select_price_tv"
+        android:src="@drawable/close"
+        android:layout_marginRight="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/select_iv">
+
+        <com.example.skudemo.view.StateButton
+            android:id="@+id/pop_ok"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:textSize="13sp"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:layout_alignParentBottom="true"
+            android:enabled="true"
+            app:normalBackgroundColor="@color/textyellowcolor"
+            app:pressedBackgroundColor="#ea7a01"/>
+
+        <LinearLayout
+            android:layout_above="@+id/pop_ok"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/sku_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                zmz:listitem="@layout/activity_main"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
